@@ -43,7 +43,8 @@ st.write("App started at:", time.time())
 # Initialize session state variables if they don't exist
 if "location" not in st.session_state:
     st.session_state.location = None
-    
+if "map" not in st.session_state:
+    st.session_state.map = None    
     
 st.text_input("Enter an address:", value ="Skaldevägen 60", key="address")
 go_input = st.button("Go!", key="go_btn")
@@ -58,12 +59,27 @@ if go_input:
         #lat, lon = location
         st.session_state.location = location  # Save coordinates in session_state
         #st.write(f"Coordinates: {lat}, {lon}")
-
+        
+        # Map
+        
+        m = folium.Map(location=location, zoom_start=14)         
+        # Add address marker
+        folium.Marker(location, popup=st.session_state.address, icon=folium.Icon(color='red', icon='home')).add_to(m)
+        folium.Circle(
+            location=location,
+            radius=st.session_state.POI_radius,  # in meters
+            color='black',       
+            fill=False,
+            weight=2.5            
+            ).add_to(m)
+         
+        st.session_state.map = m
 
 
 #Output
-st.write("Outputs")
 st.write("Button value:", go_input)
 if st.session_state.location:
     st.write(st.session_state.location)
-
+if st.session_state.map:
+    st_folium(st.session_state.map, width=700, height=500)
+    
