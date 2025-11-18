@@ -47,6 +47,7 @@ if "map" not in st.session_state:
     st.session_state.map = None    
     
 st.text_input("Enter an address:", value ="Skaldevägen 60", key="address")
+st.slider('Show PoIs within:', min_value=100, max_value=2000, value=500, key="POI_radius")
 go_input = st.button("Go!", key="go_btn")
 
 
