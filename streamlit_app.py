@@ -45,13 +45,18 @@ if "location" not in st.session_state:
     st.session_state.location = None
 if "map" not in st.session_state:
     st.session_state.map = None    
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
+
+def click_button():
+    st.session_state.clicked = True
     
 st.text_input("Enter an address:", value ="Skaldevägen 60", key="address")
 st.slider('Show PoIs within:', min_value=100, max_value=2000, value=500, key="POI_radius")
-go_input = st.button("Go!", key="go_btn")
+go_input = st.button("Go!", on_click=click_button)
 
 
-if st.session_state.go_btn:
+if st.session_state.clicked:
     
     if st.session_state.address:
         
