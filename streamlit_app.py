@@ -81,6 +81,5 @@ if go_input:
 st.write("Button value:", go_input)
 if st.session_state.location:
     st.write(st.session_state.location)
-if st.session_state.map:
     st_folium(st.session_state.map, width=700, height=500)
     
