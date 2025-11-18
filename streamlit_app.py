@@ -55,10 +55,10 @@ if st.session_state.go_btn:
     
     if st.session_state.address:
         
-        location = geocode_address(st.session_state.address)
-    
+        #location = geocode_address(st.session_state.address)
         #lat, lon = location
-        st.session_state.location = location  # Save coordinates in session_state
+        
+        st.session_state.location = geocode_address(st.session_state.address)  # Save coordinates in session_state
         #st.write(f"Coordinates: {lat}, {lon}")
         
         # Map
