@@ -1,1 +1,15 @@
 streamlit
+folium
+streamlit-folium
+osmnx
+geopandas
+shapely
+pandas
+plotly
+networkx
+requests
+branca
+textwrap3
+xlrd
+opencage
+scikit-learn
