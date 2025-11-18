@@ -51,7 +51,7 @@ st.slider('Show PoIs within:', min_value=100, max_value=2000, value=500, key="PO
 go_input = st.button("Go!", key="go_btn")
 
 
-if go_input:
+if st.session_state.go_btn:
     
     if st.session_state.address:
         
