@@ -64,15 +64,15 @@ if st.session_state.go_btn:
         # Map
         
         m = folium.Map(location=st.session_state.location, zoom_start=14)         
-        # Add address marker
-        folium.Marker(st.session_state.location, popup=st.session_state.address, icon=folium.Icon(color='red', icon='home')).add_to(m)
-        folium.Circle(
-            location=st.session_state.location,
-            radius=st.session_state.POI_radius,  # in meters
-            color='black',       
-            fill=False,
-            weight=2.5            
-            ).add_to(m)
+        # # Add address marker
+        # folium.Marker(st.session_state.location, popup=st.session_state.address, icon=folium.Icon(color='red', icon='home')).add_to(m)
+        # folium.Circle(
+        #     location=st.session_state.location,
+        #     radius=st.session_state.POI_radius,  # in meters
+        #     color='black',       
+        #     fill=False,
+        #     weight=2.5            
+        #     ).add_to(m)
          
         st.session_state.map = m
 
