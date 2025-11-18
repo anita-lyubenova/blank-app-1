@@ -55,7 +55,7 @@ if go_input:
         
         location = geocode_address(st.session_state.address)
     
-        lat, lon = location
+        #lat, lon = location
         st.session_state.location = location  # Save coordinates in session_state
         #st.write(f"Coordinates: {lat}, {lon}")
 
